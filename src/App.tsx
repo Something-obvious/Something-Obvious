@@ -6,28 +6,28 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { ProjectsSection } from './components/ProjectsSection';
-import { CraftPlayground } from './components/CraftPlayground';
-import { ExperienceTimeline } from './components/ExperienceTimeline';
-import { SkillsMatrix } from './components/SkillsMatrix';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { ContactSection } from './components/ContactSection';
+import { CaseStudyCards } from './components/CaseStudyCards';
+import { EditorialStorySection } from './components/EditorialStorySection';
+import { ExperienceSection } from './components/ExperienceSection';
+import { SayHiContact } from './components/SayHiContact';
 import { Footer } from './components/Footer';
-import { ProjectModal } from './components/ProjectModal';
-import { ResumeModal } from './components/ResumeModal';
+import { CaseStudyModal } from './components/CaseStudyModal';
+import { MasterApplicationModal } from './components/MasterApplicationModal';
+import { DirectMessageModal } from './components/DirectMessageModal';
 import { DesignSystemSummaryModal } from './components/DesignSystemSummaryModal';
-import { Project } from './data/portfolioData';
+import { CaseStudy } from './data/portfolioData';
 
 export default function App() {
   const [lang, setLang] = useState<'ko' | 'en'>('ko');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
   const [isSpecsOpen, setIsSpecsOpen] = useState<boolean>(false);
+  const [isMessageOpen, setIsMessageOpen] = useState<boolean>(false);
 
   return (
-    <div className="min-h-screen bg-[#0B0D11] text-[#F8FAFC] selection:bg-blue-600 selection:text-white flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-slate-900 selection:text-white flex flex-col font-sans">
       
-      {/* 1. Header (3-Zone Top Bar Contract) */}
+      {/* 1. Header Navigation */}
       <Header
         lang={lang}
         setLang={setLang}
@@ -36,65 +36,67 @@ export default function App() {
       />
 
       <main className="flex-1">
-        {/* 2. Hero Section (Split-Screen & 4-Column KPI Strip) */}
+        {/* 2. Kinetic Rotating Emblem Hero Section */}
         <Hero
           lang={lang}
           onOpenResume={() => setIsResumeOpen(true)}
           onOpenSpecs={() => setIsSpecsOpen(true)}
         />
 
-        {/* 3. Projects Section (Bento Grid, Deep Dives & Zero-Pill tags) */}
-        <ProjectsSection
+        {/* 3. High-Contrast Full-Bleed Colored Project Cards */}
+        <CaseStudyCards
           lang={lang}
-          onSelectProject={(project) => setSelectedProject(project)}
+          onSelectCaseStudy={(study) => setSelectedCaseStudy(study)}
         />
 
-        {/* 4. Craft Lab (Interactive Harmonic Spring & Dynamic Token Sandbox) */}
-        <CraftPlayground
+        {/* 4. Editorial Story & Circular Portrait Section */}
+        <EditorialStorySection
           lang={lang}
-        />
-
-        {/* 5. Career Experience Timeline */}
-        <ExperienceTimeline
-          lang={lang}
-        />
-
-        {/* 6. Capabilities & Skills Matrix */}
-        <SkillsMatrix
-          lang={lang}
-        />
-
-        {/* 7. Peer & Leadership Testimonials */}
-        <TestimonialsSection
-          lang={lang}
-        />
-
-        {/* 8. Contact & Collaboration */}
-        <ContactSection
-          lang={lang}
+          onOpenStory={() => setIsResumeOpen(true)}
           onOpenResume={() => setIsResumeOpen(true)}
+        />
+
+        {/* 5. Verified Career & Experience Stack */}
+        <ExperienceSection
+          lang={lang}
+        />
+
+        {/* 6. Iconic "Say hi" Watermark Contact Section */}
+        <SayHiContact
+          lang={lang}
+          onOpenMessageModal={() => setIsMessageOpen(true)}
         />
       </main>
 
-      {/* 9. Clean Footer */}
+      {/* 7. Minimal 3-Column Footer */}
       <Footer
         lang={lang}
         onOpenSpecs={() => setIsSpecsOpen(true)}
+        onOpenResume={() => setIsResumeOpen(true)}
       />
 
-      {/* Modals */}
-      <ProjectModal
-        project={selectedProject}
+      {/* Case Study Detail Modal */}
+      <CaseStudyModal
+        study={selectedCaseStudy}
         lang={lang}
-        onClose={() => setSelectedProject(null)}
+        onClose={() => setSelectedCaseStudy(null)}
       />
 
-      <ResumeModal
+      {/* Full Master Application (CV) Modal with Print Support */}
+      <MasterApplicationModal
         isOpen={isResumeOpen}
         lang={lang}
         onClose={() => setIsResumeOpen(false)}
       />
 
+      {/* Interactive Message Modal */}
+      <DirectMessageModal
+        isOpen={isMessageOpen}
+        lang={lang}
+        onClose={() => setIsMessageOpen(false)}
+      />
+
+      {/* Design System Specifications & Audit Modal */}
       <DesignSystemSummaryModal
         isOpen={isSpecsOpen}
         lang={lang}

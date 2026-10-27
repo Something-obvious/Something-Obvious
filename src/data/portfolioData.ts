@@ -1,6 +1,7 @@
-export interface Project {
+export interface CaseStudy {
   id: string;
-  title: {
+  title: string;
+  category: {
     ko: string;
     en: string;
   };
@@ -8,57 +9,42 @@ export interface Project {
     ko: string;
     en: string;
   };
-  category: 'design-system' | 'creative-tech' | 'web-app';
-  categoryLabel: {
-    ko: string;
-    en: string;
-  };
-  role: {
-    ko: string;
-    en: string;
-  };
-  period: string;
+  cardColor: string;
   image: string;
-  highlightMetric: {
+  oneLineDesc: {
     ko: string;
     en: string;
   };
-  tags: string[];
-  overview: {
+  tools: string[];
+  context: {
     ko: string;
     en: string;
   };
-  problem: {
-    ko: string;
-    en: string;
-  };
-  solution: {
-    ko: string;
-    en: string;
-  };
-  impact: {
+  actions: {
     ko: string[];
     en: string[];
   };
-  architectureDetails: {
+  verifiedResults: {
     ko: string[];
     en: string[];
   };
-  demoUrl?: string;
-  githubUrl?: string;
+  note: {
+    ko: string;
+    en: string;
+  };
 }
 
 export interface ExperienceItem {
   period: string;
-  role: {
-    ko: string;
-    en: string;
-  };
   company: {
     ko: string;
     en: string;
   };
-  location: {
+  role: {
+    ko: string;
+    en: string;
+  };
+  division: {
     ko: string;
     en: string;
   };
@@ -66,470 +52,400 @@ export interface ExperienceItem {
     ko: string;
     en: string;
   };
-  achievements: {
+  keyResponsibilities: {
     ko: string[];
     en: string[];
   };
-  techStack: string[];
+  tools: string[];
 }
 
-export interface Testimonial {
-  quote: {
-    ko: string;
-    en: string;
-  };
-  author: string;
-  role: {
-    ko: string;
-    en: string;
-  };
-  company: string;
-}
-
-export const PORTFOLIO_DATA = {
+export const YUJIN_PORTFOLIO = {
   profile: {
     name: {
-      ko: "김도현 (Alex Kim)",
-      en: "Alex Dohyun Kim"
+      ko: "신유진",
+      en: "Yujin Shin"
     },
     title: {
-      ko: "시니어 웹 디자이너 & 프론트엔드 엔지니어",
-      en: "Senior Web Designer & Lead Frontend Engineer"
+      ko: "글로벌 고객 지원 & 파트너 교육 전문가 (APAC CX & HQ CX)",
+      en: "Global Customer Support & Partner Enablement Specialist"
     },
-    tagline: {
-      ko: "디자인의 감성과 엔지니어링의 정밀함이 결합된 고품질 디지털 프로덕트를 설계합니다.",
-      en: "Bridging architectural design sensibility with rigorous frontend engineering craft."
+    heroStatement: {
+      ko: "치과 임상 현장에서 글로벌 Medit CX까지, 의료 기술과 전 세계 파트너를 신뢰와 정밀함으로 연결합니다.",
+      en: "From clinical dental practice to Medit's global CX operations, bridging medical technology and overseas partners through precision and continuous enablement."
     },
-    location: {
-      ko: "대한민국 서울 / 원격 협업 가능",
-      en: "Seoul, KR & Remote Worldwide"
+    summaryParagraph: {
+      ko: "치과대학병원에서 치과위생사로 근무한 뒤 Medit에서 글로벌 고객 지원과 파트너 교육을 담당하고 있습니다. 해외 고객과 파트너의 제품 사용 문의에 대응하고, 교육 내용을 구성해 자료를 만들고 영어로 교육을 진행해 왔습니다. 고객 안내용 매크로 제작과 Help Center 설명·구성 개선을 요청했으며, 출시 전 제품 피드백을 개발팀에 전달하고 있습니다.",
+      en: "After working as a dental hygienist at a university dental hospital, I joined Medit to lead global customer support and partner technical enablement. I handle overseas hardware and software inquiries, design training materials, deliver sessions in English, build response macros, and communicate verified user feedback to development teams."
     },
     email: "dnjf127@gmail.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    avatarImage: "/src/assets/images/yujin_profile_avatar_1793102306950.jpg",
     status: {
-      ko: "현재 새로운 도전 및 프로젝트 기회 열려있음",
-      en: "Open to High-Impact Opportunities"
-    },
-    avatar: "/src/assets/images/avatar_engineer_portrait_1793101622601.jpg",
-    heroWorkspaceImage: "/src/assets/images/hero_workspace_minimal_1793101620523.jpg"
+      ko: "글로벌 CX 및 프로덕트 오퍼레이션 포지션 탐색 중",
+      en: "Open to Global CX & Product Enablement Roles"
+    }
   },
 
-  metrics: [
+  caseStudies: [
     {
-      value: "8+ Yrs",
-      label: {
-        ko: "디자인 & 엔지니어링 경력",
-        en: "Years in Production Craft"
+      id: "partner-enablement",
+      title: "Partner Training",
+      category: {
+        ko: "파트너 교육 & 트레이닝",
+        en: "Partner Enablement"
       },
-      sub: {
-        ko: "UI/UX 설계부터 대규모 웹 아키텍처까지",
-        en: "From Design Systems to Scaled Web"
+      subtitle: {
+        ko: "해외 딜러 및 파트너사 대상 Medit 하드웨어·소프트웨어 기술지원 교육 기획 및 진행",
+        en: "Technical Enablement & Troubleshooting Training for Overseas Partners & Dealers"
+      },
+      cardColor: "#0F2E1B", // Deep Emerald
+      image: "/src/assets/images/global_partner_training_1793102306709.jpg",
+      oneLineDesc: {
+        ko: "글로벌 파트너 대상 제품 연결 및 문제 해결 영어 교육 진행과 실무 교육자료 제작",
+        en: "Delivered English product & troubleshooting training for overseas partners and created custom enablement materials"
+      },
+      tools: ["Medit Link", "Windows/macOS", "Google Forms", "English Presentation"],
+      context: {
+        ko: "해외 파트너 및 딜러가 Medit 구강 스캐너와 소프트웨어의 연결 및 기술적 문제 대응 절차를 온전히 이해하고 1차 대응할 수 있도록 지원하는 업무입니다.",
+        en: "Equipping overseas partners and dealers to independently understand device connectivity, software workflows, and primary troubleshooting procedures."
+      },
+      actions: {
+        ko: [
+          "파트너 교육 일정 조율 및 교육 내용 구성, 실무 교육자료 직접 제작·수정",
+          "해외 파트너 대상 온라인 및 오프라인 영어 교육 및 시연 진행",
+          "Windows/macOS 장비 연결 확인 순서(i700 Wireless 허브·페어링, i900 Mobility 라우터·Wi-Fi 연결 등) 대본 및 안내 문구 준비",
+          "Google Forms를 활용한 파트너 교육 평가 설문(유용성, 업무 적용도, 문제 대응 준비도) 구성 및 배포",
+          "2026년 3월 호주 ADX 전시 지원 및 현지 딜러 방문 교육 수행"
+        ],
+        en: [
+          "Coordinated training schedules, planned curriculum, and produced comprehensive training decks",
+          "Delivered interactive technical presentations and hands-on demonstrations in English",
+          "Prepared detailed scripts for Windows/macOS connectivity (i700 Wireless pairing, i900 Mobility Wi-Fi setup)",
+          "Developed and distributed evaluation surveys using Google Forms to assess training utility and readiness",
+          "Supported ADX Australia in March 2026 with exhibition demo and on-site dealer training visits"
+        ]
+      },
+      verifiedResults: {
+        ko: [
+          "직접 제작한 Training 자료를 바탕으로 해외 파트너 대상 반복 교육 안정적 수행",
+          "교육 직후 평가 설문 배포 및 교육 후속 점검 절차 구체화",
+          "복잡한 OS별 연결 설정 가이드를 파트너가 따라가기 쉬운 스크립트로 체계화"
+        ],
+        en: [
+          "Established structured English training sessions using self-authored enablement materials",
+          "Distributed post-training surveys and formalized follow-up check methodologies",
+          "Synthesized complex OS-specific connectivity steps into step-by-step actionable scripts"
+        ]
+      },
+      note: {
+        ko: "과장 배제: 실제 교육 횟수나 미검증된 만족도 수치를 조작하지 않고, 직접 준비하고 수행한 교육 행동과 자료를 중심으로 서술했습니다.",
+        en: "Fact-checked: Reflects actual delivery and curriculum preparation without exaggerated numerical claims."
       }
     },
     {
-      value: "1.4M+",
-      label: {
-        ko: "월간 활성 사용자(MAU)",
-        en: "Monthly Active Users"
+      id: "global-cx-support",
+      title: "Global CX Support",
+      category: {
+        ko: "글로벌 기술지원",
+        en: "Technical Support"
       },
-      sub: {
-        ko: "고부하 트래픽에서도 무결점 인터랙션",
-        en: "Zero-Jank Resilient Architecture"
+      subtitle: {
+        ko: "Zendesk & TeamViewer 기반 해외 고객 및 파트너사 기술 문의 분석 및 원격 대응",
+        en: "Overseas Hardware & Software Inquiry Resolution via Zendesk, Calls & TeamViewer"
+      },
+      cardColor: "#3E1045", // Deep Amethyst
+      image: "/src/assets/images/medit_scanner_technology_1793102305338.jpg",
+      oneLineDesc: {
+        ko: "국가별 시차를 고려한 원격 지원 조율과 로그·환경 분석을 통한 기술적 문제 해결",
+        en: "Coordinated cross-timezone remote sessions and analyzed device logs to diagnose technical issues"
+      },
+      tools: ["Zendesk", "TeamViewer", "Live Chat", "Device Logs", "English Support"],
+      context: {
+        ko: "Medit 장비와 소프트웨어를 사용하는 전 세계 치과 의료진과 파트너사의 문의를 접수하고 정확한 진단과 안내를 제공하는 핵심 고객 지원 업무입니다.",
+        en: "Handling incoming tickets from global clinicians and distributors using Medit scanners and Medit Link software."
+      },
+      actions: {
+        ko: [
+          "Zendesk를 기반으로 이메일, 전화, Live Chat을 통한 글로벌 제품 사용 및 기술 문의 대응",
+          "고객의 설명, PC 환경, 소프트웨어 버전, 장비 연결 상태, 스캔 영상 및 시스템 로그 검토",
+          "호주, 베트남, 말레이시아 등 국가별 시차와 고객 사용 가능 시간을 고려한 원격 지원 일정 조율",
+          "TeamViewer 원격 지원 도구를 통한 장비 연결 및 소프트웨어 설정 문제 진단",
+          "관련 개발팀, 수리 부서, 현지 딜러와 확인이 필요한 이슈를 정확히 연결하고 후속 절차 안내"
+        ],
+        en: [
+          "Managed tickets via Zendesk, Live Chat, calls, and email across global timezones",
+          "Investigated PC specs, OS updates, USB host controllers, scan logs, and demonstration videos",
+          "Scheduled and led remote support sessions tailored to clinician availability across APAC",
+          "Diagnosed driver, pairing, and graphic configuration issues hands-on via TeamViewer",
+          "Escalated verified software bugs and hardware RMA requests to internal engineering teams"
+        ]
+      },
+      verifiedResults: {
+        ko: [
+          "반복적인 기술 문의를 체계화하여 고객 대기 시간을 최소화하는 지원 프로토콜 준수",
+          "원격 세션을 통한 현장 진단으로 불필요한 장비 반품(RMA) 발생 방지",
+          "해외 의료진과의 원활한 영어 소통으로 본사 기술 신뢰도 제고"
+        ],
+        en: [
+          "Streamlined remote triage protocol minimizing clinician downtime during clinic hours",
+          "Prevented unnecessary hardware RMAs through thorough remote diagnostic verification",
+          "Delivered clear, empathetic English communication strengthening clinician trust in Medit"
+        ]
+      },
+      note: {
+        ko: "원기록 원칙: 모든 APAC 국가를 전담했다고 과장하지 않으며, 실제 담당한 티켓 분석과 조율 행동을 정확하게 기록했습니다.",
+        en: "Accurate scope: Focuses on verified ticket triage and remote diagnostic actions."
       }
     },
     {
-      value: "99.8%",
-      label: {
-        ko: "프로덕션 가용성 & 98+ 점수",
-        en: "Uptime & Lighthouse 98+"
+      id: "helpcenter-documentation",
+      title: "Help Center Ops",
+      category: {
+        ko: "문서화 & 지식 표준화",
+        en: "Documentation & Knowledge"
       },
-      sub: {
-        ko: "Core Web Vitals 최상위 등급 유지",
-        en: "Optimal Core Web Vitals Guaranteed"
+      subtitle: {
+        ko: "Help Center 설명·순서·레이아웃 개선 요청 및 사내 공통 SOP/Confluence 지식 정리",
+        en: "Help Center User Guidance Optimization & Cross-Office Technical Documentation"
+      },
+      cardColor: "#0B1B36", // Deep Navy
+      image: "/src/assets/images/helpcenter_digital_workflow_1793102308054.jpg",
+      oneLineDesc: {
+        ko: "고객 친화적 Help Center 레이아웃 및 순서 개선 제안과 신제품·정책 공통 안내 문서화",
+        en: "Proposed user-centric Help Center layout improvements and standardized SOP documentation"
+      },
+      tools: ["Help Center", "Troubleshooting Guide", "Confluence", "SOP Documentation"],
+      context: {
+        ko: "제품 업데이트 및 신규 정책에 따라 달라지는 기술 정보를 파트너와 고객이 스스로 쉽게 찾아보고 따라할 수 있도록 가이드를 정비하는 업무입니다.",
+        en: "Auditing self-service documentation so overseas users and regional offices find clear, up-to-date guidance."
+      },
+      actions: {
+        ko: [
+          "Help Center 내 오류, 누락된 정보, 고객이 이해하기 어려운 기술 설명 자발적 검토",
+          "고객의 이해도를 높이기 위한 설명 순서 재배치, 사진 첨부 및 레이아웃 개선 요청",
+          "기존 Troubleshooting Guide 검토 및 현장 기술지원 피드백 전달",
+          "신제품 및 소프트웨어 정책 변경 시 유관부서 미팅을 통해 확인된 내용을 문서화",
+          "여러 법인에서 동일한 표준으로 안내할 수 있도록 SOP 및 Confluence 내용 정리"
+        ],
+        en: [
+          "Audited existing Help Center articles for missing instructions, outdated UI steps, and ambiguities",
+          "Requested content sequencing updates, illustrative screenshots, and layout refinements",
+          "Reviewed official Troubleshooting Guides and provided frontline CX feedback",
+          "Synthesized product policy updates from cross-functional meetings into reference sheets",
+          "Maintained SOPs and Confluence articles to ensure unified messaging across global entities"
+        ]
+      },
+      verifiedResults: {
+        ko: [
+          "고객이 혼란을 겪는 단계를 사진과 단계별 설명으로 보강하여 문의 전달 명확화",
+          "본사 회의 내용 및 정책 업데이트의 해외 법인 공통 안내 문서화 체계 구축 기여",
+          "Troubleshooting 문서 검토를 통해 일관된 1차 대응 기준 마련"
+        ],
+        en: [
+          "Enhanced complex setup steps with visual references and clarified instruction flows",
+          "Bridged HQ engineering updates into actionable reference guides for overseas entities",
+          "Contributed to consistent first-line support answers across regional teams"
+        ]
+      },
+      note: {
+        ko: "원기록 대조: 'Help Center 전체를 직접 개발·구축했다'고 과장하지 않고, 고객 관점의 검토·수정 요청·후속 확인 행동을 명확히 구분했습니다.",
+        en: "Distinction: Clearly distinguishes user-centric auditing and improvement requests from direct web engineering."
       }
     },
     {
-      value: "350+",
-      label: {
-        ko: "디자인 토큰 & 컴포넌트",
-        en: "Design Tokens & Components"
+      id: "process-automation",
+      title: "Process & Macros",
+      category: {
+        ko: "프로세스 개선 & 매크로",
+        en: "Process & Macros"
       },
-      sub: {
-        ko: "WCAG 2.2 AA 접근성 기준 충족",
-        en: "Strict WCAG 2.2 AA Accessibility"
+      subtitle: {
+        ko: "Live Chat 무응답/종료 및 다국어 문의 영어 안내 매크로 제작과 다운로드 절차 간소화",
+        en: "Support Macro Automation, Live Chat Process Refinement & Download Friction Removal"
+      },
+      cardColor: "#0A2A2E", // Deep Cypress Teal
+      image: "/src/assets/images/helpcenter_digital_workflow_1793102308054.jpg",
+      oneLineDesc: {
+        ko: "반복적인 고객 안내 문구 매크로화 및 계정 불필요 다운로드 방식 변경으로 처리 속도 향상",
+        en: "Standardized support response macros and removed Google account requirement for guidance downloads"
+      },
+      tools: ["Zendesk Macros", "Live Chat", "CI/NCI Templates", "Workflow Optimization"],
+      context: {
+        ko: "상담 중 반복적으로 발생하는 안내 문구 작성 시간을 줄이고, 고객이 필요한 자료에 도달하는 데 겪는 불필요한 단계를 제거하는 업무입니다.",
+        en: "Eliminating repetitive writing tasks and removing unnecessary hurdles for customers accessing support materials."
+      },
+      actions: {
+        ko: [
+          "반복적인 고객 안내에 사용할 템플릿과 매크로 직접 제작",
+          "Live Chat 무응답 및 자동 종료 상황에 대응하는 표준 영문 안내 문구 매크로화",
+          "영어 외 다른 언어로 접수된 문의 시 사용할 정중한 영어 안내 문구 매크로 정리",
+          "CI/NCI 템플릿 분리 작업 수행",
+          "고객이 Google 계정 로그인 없이도 안내 첨부파일을 즉시 다운로드할 수 있도록 방식 변경 요청"
+        ],
+        en: [
+          "Authored canned responses and macros for high-frequency inquiry categories",
+          "Standardized polite English scripts for Live Chat non-response and automatic closure scenarios",
+          "Organized English guidance macros for inquiries initiated in non-English languages",
+          "Separated specialized CI and NCI response templates",
+          "Identified and requested the elimination of Google login barriers for file downloads"
+        ]
+      },
+      verifiedResults: {
+        ko: [
+          "반복 안내 작성에 소요되는 시간 절약 및 상담 간 신속한 응대 지원",
+          "고객의 다운로드 관련 추가 문의 방지 및 지원 경험 단순화",
+          "채팅 종료 시에도 고객 친화적인 마무리 문구로 전문성 유지"
+        ],
+        en: [
+          "Reduced response composition latency during live chat sessions",
+          "Prevented repetitive back-and-forth emails regarding file permission errors",
+          "Maintained professional communication standards during session wrap-ups"
+        ]
+      },
+      note: {
+        ko: "정확한 정의: '소프트웨어 기능 개발'이 아닌, 매크로 템플릿 제작 및 절차 개선 요청 업무로 기술했습니다.",
+        en: "Clarification: Reflects macro authoring and workflow streamlining rather than backend code development."
+      }
+    },
+    {
+      id: "product-feedback",
+      title: "Product Feedback",
+      category: {
+        ko: "신제품 테스트 & 피드백",
+        en: "Product Feedback"
+      },
+      subtitle: {
+        ko: "출시 전 신제품 사전 사용 테스트 및 Jira/이메일을 통한 개발팀 개선 요청 전달",
+        en: "Pre-Release Hardware/Software Testing & Cross-Functional Feedback Delivery via Jira"
+      },
+      cardColor: "#18181B", // Deep Obsidian Charcoal
+      image: "/src/assets/images/medit_scanner_technology_1793102305338.jpg",
+      oneLineDesc: {
+        ko: "실제 임상 및 고객 관점에서 신제품을 사전 검증하고 구체적 개선 사항 전달",
+        en: "Tested pre-release scanners from clinical and user perspectives to submit actionable feedback"
+      },
+      tools: ["Jira", "Pre-Release Beta Scanners", "Medit Link", "Cross-Functional Collaboration"],
+      context: {
+        ko: "신제품 출시 전 사용성과 연결성 문제를 미리 발견하여 완성도 높은 제품 출시를 지원하고, 출시 후에도 현장 이슈를 개발팀에 공유하는 활동입니다.",
+        en: "Identifying hardware/software friction before market release and advocating for user experience improvements."
+      },
+      actions: {
+        ko: [
+          "신제품 출시 전 제품을 직접 구동·사용해보고 사용자 관점의 피드백 제공",
+          "스캐너 연결, 소프트웨어 기능 실행 중 발생하는 이상 증상 및 개선점 지속 확인",
+          "Jira 티켓 및 이메일을 통해 재현 경로와 개선 필요 사유를 명시하여 개발팀에 전달",
+          "현장 임상 지식(치과위생사 경력)을 바탕으로 치과 진료실 환경에서의 실용성 검토"
+        ],
+        en: [
+          "Operated pre-release scanner units to evaluate real-world ergonomic and software workflows",
+          "Documented connection glitches, software UI inconsistencies, and performance slowdowns",
+          "Logged detailed reproduction steps and logs into Jira for engineering review",
+          "Leveraged clinical hygiene background to evaluate suitability in realistic operatory conditions"
+        ]
+      },
+      verifiedResults: {
+        ko: [
+          "개발팀이 파악하기 어려운 실제 사용자 및 임상 환경 관점의 버그 조기 발굴",
+          "구체적인 증상 설명과 로그 전달로 개발팀의 문제 원인 분석 효율화 지원",
+          "현장 목소리가 제품 개선으로 이어지는 가교 역할 수행"
+        ],
+        en: [
+          "Surfaced edge-case usability glitches from realistic clinical perspectives prior to release",
+          "Provided clear diagnostic reproduction steps enabling rapid developer triage",
+          "Served as a frontline conduit between international clinicians and core engineering"
+        ]
+      },
+      note: {
+        ko: "역할 한계 준수: 'PO/PM으로서 제품 로드맵을 총괄했다'고 과장하지 않고, 본인이 확인한 내용과 전달한 개선 요청에 집중했습니다.",
+        en: "Clear scope: Focused on verified testing and feedback delivery rather than overall product roadmapping."
       }
     }
   ],
-
-  projects: ([
-    {
-      id: "hyperion-design-system",
-      title: {
-        ko: "하이페리온 디자인 시스템 (Hyperion)",
-        en: "Hyperion Multi-Brand Design System"
-      },
-      subtitle: {
-        ko: "Figma 토큰과 코드가 실시간 동기화되는 엔터프라이즈 컴포넌트 아키텍처",
-        en: "Enterprise Component Architecture with Real-Time Figma Token Synchronization"
-      },
-      category: "design-system",
-      categoryLabel: {
-        ko: "디자인 시스템",
-        en: "Design Systems"
-      },
-      role: {
-        ko: "리드 디자인 엔지니어 (설계 & 프론트엔드)",
-        en: "Lead Design Engineer"
-      },
-      period: "2024 - Present",
-      image: "/src/assets/images/project_design_system_1793101621165.jpg",
-      highlightMetric: {
-        ko: "+45% 제품 개발 속도 향상, 14개 프로덕트 통합",
-        en: "+45% Feature Velocity across 14 Integrated Products"
-      },
-      tags: ["TypeScript", "React 19", "Tailwind CSS", "Figma Tokens", "Storybook", "Radix UI", "Accessibility"],
-      overview: {
-        ko: "분산된 14개의 웹 및 모바일 프로덕트의 사용자 경험을 단일한 설계 언어로 일원화하기 위해 탄생한 차세대 디자인 시스템입니다. 디자이너가 피그마에서 정의한 변수가 CI/CD 파이프라인을 거쳐 자동으로 TypeScript 타입과 CSS 변수로 변환됩니다.",
-        en: "A next-generation multi-brand design system unified across 14 enterprise web and mobile products. Synchronizes design decisions from Figma directly into type-safe code tokens with zero human translation errors."
-      },
-      problem: {
-        ko: "팀마다 상이한 UI 라이브러리를 사용해 컴포넌트 중복 개발이 발생하고, 일관성 없는 여백·폰트 스케일 및 접근성 미비로 인한 품질 이슈가 지속되었습니다.",
-        en: "Teams previously fragmented across inconsistent UI libraries, creating duplicative components, drifting typography and spacing scales, and failing WCAG accessibility audits."
-      },
-      solution: {
-        ko: "W3C 디자인 토큰 표준을 준수하는 양방향 토큰 동기화 파이프라인 구축. 무손실 키보드 내비게이션, 스크린 리더 지원(Aria primitives), 동적 테마 엔진(Dark/Light/High-Contrast)을 완벽 구현했습니다.",
-        en: "Constructed an automated bidirectional design token engine adhering to W3C standards, paired with accessible headless primitives, comprehensive keyboard navigation, and dynamic dark/light theme switching."
-      },
-      impact: {
-        ko: [
-          "신규 피처 개발 시 UI 제작 시간 45% 단축",
-          "사내 3개 본부 14개 프로덕트에 성공적 도입 및 100% 마이그레이션",
-          "WCAG 2.2 AA 접근성 100% 달성 및 다크모드 광학 보정 시스템 안착"
-        ],
-        en: [
-          "45% reduction in frontend UI implementation time for new product squads",
-          "100% adoption and migration completed across 14 distinct product teams",
-          "Achieved full WCAG 2.2 AA compliance and automated dark mode optical balance"
-        ]
-      },
-      architectureDetails: {
-        ko: [
-          "Figma REST API & GitHub Actions 기반 자동 토큰 생성 파이프라인",
-          "CVA (Class Variance Authority)와 Tailwind를 결합한 불변 컴포넌트 변형 관리",
-          "Playwright 및 Storybook Test Runner를 통한 시각적 회귀(Visual Regression) 자동 검증"
-        ],
-        en: [
-          "Automated token compiler via Figma REST API & GitHub Actions runner",
-          "Strict component variant system utilizing CVA and Tailwind CSS primitives",
-          "Automated visual regression and accessibility testing with Playwright & Storybook"
-        ]
-      }
-    },
-    {
-      id: "vectorflux-spatial-canvas",
-      title: {
-        ko: "벡터플럭스 인터랙티브 노드 캔버스 (VectorFlux)",
-        en: "VectorFlux Spatial Node Canvas & Graph Engine"
-      },
-      subtitle: {
-        ko: "10,000개 이상의 노드를 끊김 없이 렌더링하는 WebGL/Canvas 하이브리드 엔진",
-        en: "High-Performance Hybrid WebGL/2D Canvas Engine Rendering 10k+ Dynamic Graph Nodes"
-      },
-      category: "creative-tech",
-      categoryLabel: {
-        ko: "크리에이티브 인터랙션",
-        en: "Creative Tech"
-      },
-      role: {
-        ko: "시니어 프론트엔드 아키텍트",
-        en: "Senior Frontend Architect"
-      },
-      period: "2023 - 2024",
-      image: "/src/assets/images/project_spatial_canvas_1793101622075.jpg",
-      highlightMetric: {
-        ko: "대용량 노드 렌더링 시에도 일관된 60 FPS 유지",
-        en: "Consistent 60 FPS under 10,000+ Active Vector Nodes"
-      },
-      tags: ["WebGL", "Three.js", "Canvas 2D", "Web Workers", "Zustand", "Spatial Partitioning", "TypeScript"],
-      overview: {
-        ko: "창작자와 데이터 엔지니어가 복잡한 데이터 파이프라인과 인터랙티브 노드를 자유롭게 연결할 수 있는 무한 줌 캔버스 웹 애플리케이션입니다. 브라우저의 렌더링 한계를 극복하기 위해 공간 분할(Spatial Partitioning) 알고리즘을 도입했습니다.",
-        en: "An infinite-pan visual node graph editor designed for data pipelines and creative workflows. Leverages quadtree spatial partitioning and Web Workers to overcome browser rendering bottlenecks."
-      },
-      problem: {
-        ko: "노드 수가 500개를 초과할 때 DOM 기반 렌더링 방식의 한계로 인해 브라우저 프레임 드랍(15 FPS 이하)과 입력 지연이 심각하게 발생했습니다.",
-        en: "Traditional DOM-based graph renderers collapsed below 15 FPS when graph density exceeded 500 nodes, resulting in unresponsive drag gestures and severe input lag."
-      },
-      solution: {
-        ko: "OffscreenCanvas와 Web Worker로 복잡한 계산을 격리하고, 뷰포트 내 보이는 요소만 선별 렌더링하는 Quadtree 알고리즘을 설계하여 메인 스레드를 온전히 UI 인터랙션에 집중시켰습니다.",
-        en: "Isolated rendering loops using OffscreenCanvas and Web Workers, combined with a custom Quadtree frustum culling algorithm that renders only elements visible in the active viewport."
-      },
-      impact: {
-        ko: [
-          "10,000개 이상의 노드와 25,000개 베지어 연결선 환경에서도 안정적 60 FPS 달성",
-          "초기 캔버스 로딩 시간 2.8초에서 0.4초로 85% 대폭 단축",
-          "사용자 인터랙션 입력 지연시간 8ms 이하로 단축하여 실물 같은 조작감 제공"
-        ],
-        en: [
-          "Maintained rock-solid 60 FPS with 10k nodes and 25k bezier connector curves",
-          "Initial canvas initialization time dropped from 2.8s to 0.4s (85% reduction)",
-          "Sub-8ms gesture input latency, delivering native desktop-grade fluidity"
-        ]
-      },
-      architectureDetails: {
-        ko: [
-          "Worker 스레드 기반 쿼드트리(Quadtree) 공간 색인 및 컬링",
-          "Bézier 곡선 실시간 하드웨어 가속 셰이더 및 커스텀 충돌 감지",
-          "Zustand 스토어를 통한 영속적 실행 취소/다시 실행(Undo/Redo) 히스토리 관리"
-        ],
-        en: [
-          "Worker-authoritative quadtree indexing and viewport frustum culling",
-          "Hardware-accelerated custom shaders for smooth cubic bezier paths",
-          "High-efficiency immutable history stack with persistent undo/redo capability"
-        ]
-      }
-    },
-    {
-      id: "velocity-observability",
-      title: {
-        ko: "벨로시티 실시간 옵저버빌리티 플랫폼 (Velocity)",
-        en: "Velocity Real-Time Cloud Telemetry Suite"
-      },
-      subtitle: {
-        ko: "분당 수만 건의 서버 지표를 실시간 가시화하는 고성능 모니터링 인터페이스",
-        en: "High-Throughput Real-Time Metrics & Telemetry Dashboard for Mission-Critical Systems"
-      },
-      category: "web-app",
-      categoryLabel: {
-        ko: "웹 애플리케이션",
-        en: "Web Applications"
-      },
-      role: {
-        ko: "시니어 프론트엔드 엔지니어 & UI 디자이너",
-        en: "Senior Frontend Engineer & UI Designer"
-      },
-      period: "2022 - 2023",
-      image: "/src/assets/images/project_analytics_engine_1793101624590.jpg",
-      highlightMetric: {
-        ko: "초기 페이지 응답(TTFB) 68% 단축, 실시간 렌더링",
-        en: "68% TTFB Reduction (1.2s → 0.38s) & Real-Time Stream"
-      },
-      tags: ["React", "TypeScript", "D3.js", "WebSocket", "Tailwind CSS", "Data Virtualization", "Vite"],
-      overview: {
-        ko: "글로벌 분산 클라우드 인프라의 상태, API 응답 시간, 장애 알림을 한 화면에서 즉각 파악할 수 있는 다크 모드 중심의 프로덕션 엔터프라이즈 모니터링 콘솔입니다.",
-        en: "A dark-mode-first mission-critical monitoring dashboard designed for DevOps and SRE teams to analyze real-time streaming infrastructure metrics, latency curves, and anomalies."
-      },
-      problem: {
-        ko: "초당 수천 개의 웹소켓 이벤트 수신 시 리렌더링 폭주로 브라우저 탭 메모리가 지속적으로 증가하여 장시간 켜둘 경우 크래시가 발생하는 문제가 있었습니다.",
-        en: "High-frequency streaming telemetry triggered aggressive React re-renders, causing memory leaks and browser tab crashes during prolonged 24/7 monitoring sessions."
-      },
-      solution: {
-        ko: "배치 업데이트(Throttle Batching) 기법과 가상화 테이블(Virtual Table)을 구현하고, SVG 대신 가벼운 HTML5 Canvas 차트 렌더러를 직접 작성하여 24시간 연속 가동 시에도 메모리 누수를 원천 차단했습니다.",
-        en: "Implemented fixed-window throttle batching, virtualized tabular views, and lightweight canvas sparklines to prevent memory leaks during 24/7 continuous operation."
-      },
-      impact: {
-        ko: [
-          "TTFB 1.2초에서 0.38초로 68% 개선 및 클라이언트 메모리 사용량 65% 절감",
-          "장애 감지 및 인시던트 대응 시간 평균 4.2분 단축",
-          "엔지니어 500+명이 매일 사용하는 핵심 프로덕션 도구로 정착"
-        ],
-        en: [
-          "68% TTFB improvement (1.2s to 0.38s) and 65% reduction in client heap memory",
-          "Reduced mean time to incident response (MTTR) by 4.2 minutes across ops teams",
-          "Adopted daily by 500+ engineers as the primary mission-critical dashboard"
-        ]
-      },
-      architectureDetails: {
-        ko: [
-          "WebSocket 데이터 수신을 16ms 주기로 통합하는 렌더링 버퍼링 큐",
-          "Tabular 수치 정렬을 위한 monospace tabular-nums 폰트 엔진 및 미세 여백 튜닝",
-          "SSE (Server-Sent Events) 자동 재연결 및 지수 백오프(Exponential Backoff) 전략"
-        ],
-        en: [
-          "16ms render buffering queue aligning telemetry packets to display refresh cycles",
-          "Tabular-num typography discipline ensuring vertical baseline stability",
-          "Self-healing WebSocket reconnection protocols with exponential jitter backoff"
-        ]
-      }
-    }
-  ] as Project[]),
 
   experiences: [
     {
-      period: "2023 — Present",
-      role: {
-        ko: "리드 디자인 엔지니어 (Lead Design Engineer)",
-        en: "Lead Design Engineer"
-      },
+      period: "입사 연월 — 현재",
       company: {
-        ko: "넥서스 인터랙티브 (Nexus Interactive)",
-        en: "Nexus Interactive"
+        ko: "Medit (메디트)",
+        en: "Medit"
       },
-      location: {
-        ko: "서울, 대한민국",
-        en: "Seoul, South Korea"
+      role: {
+        ko: "APAC CX 및 HQ CX 기술지원 / 글로벌 고객 지원 & 파트너 교육",
+        en: "Global Customer Support & Partner Enablement (APAC CX & HQ CX)"
+      },
+      division: {
+        ko: "글로벌 고객경험(CX) 본부",
+        en: "Global Customer Experience Division"
       },
       description: {
-        ko: "디자인과 프론트엔드 엔지니어링의 경계를 허무는 디자인 엔지니어링 챕터를 이끌며 전사 공통 컴포넌트 아키텍처 및 고성능 웹 플랫폼을 총괄하고 있습니다.",
-        en: "Directing the Design Engineering chapter, spearheading enterprise component architectures, web performance standards, and cross-functional design token pipelines."
+        ko: "해외 파트너·딜러와 최종 사용자를 대상으로 글로벌 기술지원, 파트너 교육 기획 및 진행, 고객 안내 프로세스 개선, 해외 신규 직원 온보딩 및 APAC 주간 회의 리딩을 담당하고 있습니다.",
+        en: "Delivering overseas technical support, partner training programs, customer guidance optimization, new employee onboarding, and APAC CX weekly operations."
       },
-      achievements: {
+      keyResponsibilities: {
         ko: [
-          "W3C 토큰 표준 기반의 전사 디자인 시스템 구축 및 14개 제품 성공적 배포",
-          "핵심 서비스 Core Web Vitals (LCP, INP, CLS) 올그린 달성 및 로딩 속도 2배 향상",
-          "주니어 엔지니어 및 프로덕트 디자이너 8명 멘토링 및 디자인 엔지니어링 문화 정립"
+          "Zendesk 기반 글로벌 고객·딜러 하드웨어/소프트웨어 문의 응대 및 TeamViewer 원격 지원",
+          "해외 파트너 대상 제품·Troubleshooting 교육 자료 제작 및 영어 세션 진행",
+          "Google Forms 파트너 교육 평가 설문 설계 및 피드백 점검 체계 마련",
+          "Help Center 누락 정보·오류 검토 및 레이아웃 개선 요청, 공통 SOP 문서화",
+          "반복 업무 매크로 제작, CI/NCI 템플릿 분리, 파일 다운로드 방식 개선 요청",
+          "신제품 출시 전 테스트 참여 및 Jira 기반 개선 피드백 전달",
+          "해외 신규 직원 영어 온보딩, 버디 멘토링, APAC 주간 회의 준비 및 액션 아이템 팔로업",
+          "ADX Australia(2026.03) 전시 지원 및 딜러 교육, SDIEX(2026.05) 부스 지원"
         ],
         en: [
-          "Architected enterprise design system serving 14 products with automated token sync",
-          "Achieved perfect Core Web Vitals (LCP, INP, CLS) resulting in 2x faster page loads",
-          "Mentored 8 engineers & product designers in modern interaction craft and accessibility"
+          "Global inquiry resolution via Zendesk and hands-on remote troubleshooting with TeamViewer",
+          "Creation of technical training materials and delivery of English presentations for overseas dealers",
+          "Google Forms survey design and post-training feedback loop establishment",
+          "Help Center content audits, layout revision proposals, and unified SOP documentation",
+          "Response macro authoring, CI/NCI template separation, and download friction elimination",
+          "Pre-release product usability testing and Jira bug reporting with reproduction details",
+          "Overseas employee onboarding, buddy mentoring, and APAC weekly meeting facilitation",
+          "On-site exhibition and dealer training support at ADX Australia and SDIEX"
         ]
       },
-      techStack: ["TypeScript", "React 19", "Tailwind CSS", "Motion", "Design Tokens", "Architecture"]
+      tools: ["Zendesk", "TeamViewer", "Jira", "Confluence", "Google Forms", "SAP", "Medit Link", "Microsoft Teams"]
     },
     {
-      period: "2021 — 2023",
-      role: {
-        ko: "시니어 프론트엔드 개발자 (Senior Frontend Developer)",
-        en: "Senior Frontend Developer"
-      },
+      period: "치과대학병원 재직 기간",
       company: {
-        ko: "프리즘 테크 랩스 (Prism Tech Labs)",
-        en: "Prism Tech Labs"
+        ko: "치과대학병원",
+        en: "University Dental Hospital"
       },
-      location: {
-        ko: "원격 (Remote)",
-        en: "Remote, Global"
+      role: {
+        ko: "치과위생사 (Dental Hygienist)",
+        en: "Dental Hygienist"
+      },
+      division: {
+        ko: "임상 진료 부서",
+        en: "Clinical Department"
       },
       description: {
-        ko: "대규모 데이터 시각화 웹 애플리케이션 및 공간 인터랙티브 캔버스 코어 모듈을 개발했습니다.",
-        en: "Engineered real-time telemetry dashboards and interactive canvas graphics for global developer products."
+        ko: "치과대학병원 임상 현장에서 근무하며 환자 진료 및 임상 프로토콜을 체득했습니다. 이 경험은 Medit 구강 스캐너를 사용하는 의료진과 치과의사의 실질적 니즈를 깊이 이해하는 탄탄한 도메인 자산이 되었습니다.",
+        en: "Worked as a licensed dental hygienist in a university dental hospital, mastering clinical workflows and patient care environments. This foundational domain insight directly empowers deep empathy with dental clinicians."
       },
-      achievements: {
+      keyResponsibilities: {
         ko: [
-          "WebGL & Web Workers를 활용한 대규모 노드 그래프 렌더러 설계 (60 FPS 보장)",
-          "마이크로 프론트엔드(Module Federation) 아키텍처 전환으로 독립 배포 주기 확립",
-          "프로덕션 장애율 0.02% 미만 유지 및 무중단 배포 체계 완성"
+          "치과대학병원 임상 현장 진료 협조 및 환자 케어",
+          "치과 진료실 워크플로우와 구강 내 기구 조작 환경에 대한 체계적 이해",
+          "임상 의료진(치과의사, 위생사, 기공사) 관점의 워크플로우와 페인포인트 체득"
         ],
         en: [
-          "Developed high-throughput WebGL/Canvas node graph engine running at 60 FPS",
-          "Transitioned monolithic frontend into modular micro-frontends with independent CI/CD",
-          "Maintained <0.02% production error budget with robust Sentry telemetry and testing"
+          "Clinical patient care and operatory workflow execution in a university dental hospital",
+          "Systematic understanding of clinical dental procedures and sterilization standards",
+          "In-depth insight into operatory ergonomics and clinician pain points"
         ]
       },
-      techStack: ["React", "TypeScript", "WebGL", "Three.js", "Zustand", "D3.js", "Vite"]
-    },
-    {
-      period: "2018 — 2021",
-      role: {
-        ko: "UI/UX 디자이너 & 프론트엔드 엔지니어",
-        en: "UI/UX Designer & Frontend Engineer"
-      },
-      company: {
-        ko: "스튜디오 모놀리스 (Studio Monolith)",
-        en: "Studio Monolith"
-      },
-      location: {
-        ko: "서울, 대한민국",
-        en: "Seoul, South Korea"
-      },
-      description: {
-        ko: "핀테크, 모빌리티, 미디어 브랜드의 차별화된 브랜드 웹사이트 및 디지털 프로덕트를 턴키(기획-디자인-개발)로 납품했습니다.",
-        en: "Delivered 20+ responsive web platforms and brand experiences from conceptual UX wireframes through final production code."
-      },
-      achievements: {
-        ko: [
-          "국내외 권위 있는 디지털 어워드 3관왕 (Awwwards, FWA, iF Design)",
-          "부드러운 스크롤 인터랙션 및 마이크로 인터랙션 라이브러리 자체 개발",
-          "고객사 전환율(Conversion Rate) 평균 34% 개선"
-        ],
-        en: [
-          "Recognized with 3 digital design awards (Awwwards Site of the Day, FWA, iF Design)",
-          "Authored internal micro-interaction and smooth scroll orchestration library",
-          "Delivered average 34% increase in user conversion rates across shipped client projects"
-        ]
-      },
-      techStack: ["Figma", "JavaScript", "React", "GSAP", "CSS Architecture", "Design Systems"]
+      tools: ["Clinical Protocols", "Dental Medical Practice", "Operatory Workflows"]
     }
   ],
 
-  skills: {
-    engineering: [
-      { name: "TypeScript / JavaScript", level: "Expert", years: "8 yrs" },
-      { name: "React 19 & Next.js", level: "Expert", years: "7 yrs" },
-      { name: "Tailwind CSS & Styling Systems", level: "Expert", years: "6 yrs" },
-      { name: "Motion & UI Physics", level: "Advanced", years: "5 yrs" },
-      { name: "WebGL / Three.js / Canvas", level: "Advanced", years: "4 yrs" },
-      { name: "State Architecture (Zustand/Redux)", level: "Expert", years: "6 yrs" },
-      { name: "Web Workers & Performance Ops", level: "Advanced", years: "4 yrs" },
-      { name: "CI/CD & Monorepo (Turborepo)", level: "Advanced", years: "4 yrs" }
-    ],
-    design: [
-      { name: "Design System Architecture", level: "Master", years: "6 yrs" },
-      { name: "Figma Variables & Auto-Layout", level: "Expert", years: "7 yrs" },
-      { name: "W3C Design Tokens Spec", level: "Expert", years: "4 yrs" },
-      { name: "WCAG 2.2 AA Accessibility", level: "Expert", years: "5 yrs" },
-      { name: "Micro-Interactions & Motion", level: "Expert", years: "6 yrs" },
-      { name: "Typographic & Spatial Grid Systems", level: "Master", years: "8 yrs" }
-    ],
-    principles: [
-      {
-        title: {
-          ko: "타협 없는 시각적 디테일",
-          en: "Uncompromising Visual Precision"
-        },
-        desc: {
-          ko: "1px의 테두리 대비, 폰트의 행간, 모션의 감속 곡선 하나까지 의도된 설계 원칙에 따라 조율합니다.",
-          en: "Every border contrast, typographic baseline, and easing curve is calibrated with mathematical purpose."
-        }
-      },
-      {
-        title: {
-          ko: "0.1초의 지연도 용납하지 않는 성능",
-          en: "Zero-Latency Performance"
-        },
-        desc: {
-          ko: "아름다운 인터랙션이 프레임 드랍을 일으키지 않도록 하드웨어 가속과 컴포지터 계층을 철저히 검증합니다.",
-          en: "Interactions animate on GPU compositor layers exclusively, ensuring buttery 60 FPS responsiveness."
-        }
-      },
-      {
-        title: {
-          ko: "모두를 위한 포용적 접근성",
-          en: "Universal Accessibility First"
-        },
-        desc: {
-          ko: "화려한 비주얼도 접근성이 결여되면 실패입니다. 시맨틱 마크업과 키보드 네비게이션을 기본 탑재합니다.",
-          en: "Beauty without accessibility is incomplete. Full semantic HTML, visible focus states, and screen reader clarity."
-        }
-      }
-    ]
-  },
-
-  testimonials: [
-    {
-      quote: {
-        ko: "도현 님은 디자인의 뉘앙스를 온전히 코드로 구현해 내는 보기 드문 인재입니다. 우리 프로덕트의 완성도와 개발 생산성을 비약적으로 끌어올려 주셨습니다.",
-        en: "Alex possesses the rare synthesis of exquisite visual taste and hardened engineering architecture. Elevated our entire product bar effortlessly."
-      },
-      author: "최원석 (Marcus Choi)",
-      role: {
-        ko: "제품 총괄 부사장 (VP of Product)",
-        en: "VP of Product"
-      },
-      company: "Nexus Interactive"
-    },
-    {
-      quote: {
-        ko: "10,000개 이상의 노드가 도는 캔버스를 60 FPS로 안정화한 것은 도현 님의 집요한 프로파일링과 아키텍처 역량이 있었기에 가능했습니다.",
-        en: "Stabilizing our canvas engine at 60 FPS under massive node loads was directly powered by his relentless performance profiling."
-      },
-      author: "David Vance",
-      role: {
-        ko: "수석 소프트웨어 엔지니어 (Principal Architect)",
-        en: "Principal Architect"
-      },
-      company: "Prism Tech Labs"
-    }
+  toolsAndSkills: [
+    { name: "Zendesk", category: "CX & Ticketing", desc: "글로벌 고객·파트너 티켓 관리 및 매크로 제작" },
+    { name: "TeamViewer", category: "Remote Diagnostic", desc: "원격 접속을 통한 장비 연결 및 환경 트러블슈팅" },
+    { name: "Jira", category: "Issue Tracking", desc: "출시 전 제품 이상 증상 및 개선 요청 등록" },
+    { name: "Confluence & SOP", category: "Knowledge Base", desc: "사내 공통 안내 문서화 및 업무 매뉴얼 정리" },
+    { name: "Google Forms", category: "Evaluation Survey", desc: "파트너 교육 평가 설문 제작 및 응답 배포" },
+    { name: "SAP", category: "Operations", desc: "RMA 및 장비 관련 업무 맥락에서의 활용" },
+    { name: "Medit Hardware/Software", category: "Domain System", desc: "i500, i700(Wireless), i900 Mobility, Medit Link" },
+    { name: "Professional English", category: "Global Communication", desc: "해외 교육, 주간 미팅, 기술지원 영문 작성" }
   ]
 };
